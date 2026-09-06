@@ -1,13 +1,11 @@
-import Nav from "../nav/nav"
-
+import Nav from "../nav/nav";
 
 export default function Proyecto1() {
   return (
     <main>
-      <div name="nav">
-        <Nav/>
+      <div>
+        <Nav logo="Jorge Vazquez" items={[]} />
       </div>
-    
     </main>
   );
 }
