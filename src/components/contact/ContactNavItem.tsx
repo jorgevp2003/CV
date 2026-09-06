@@ -65,7 +65,7 @@ export default function ContactNavItem() {
   return (
     <>
       <div className="site-nav-item">
-        <a href="#contacto">Contacto</a>
+        <span className="nav-label">Contacto</span>
         <div className="nav-options">
           {contactLinks.map((link) => (
             <a

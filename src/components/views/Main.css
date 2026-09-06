@@ -49,7 +49,8 @@ main {
   position: relative;
 }
 
-.site-nav-item > a {
+.site-nav-item > a,
+.site-nav-item > .nav-label {
   color: var(--ink);
   display: block;
   padding: 0.4rem 0;
@@ -61,7 +62,12 @@ main {
   transition: color 0.18s ease;
 }
 
+.site-nav-item > .nav-label {
+  cursor: default;
+}
+
 .site-nav-item > a:hover,
+.site-nav-item > .nav-label:hover,
 .site-nav-item > a:focus-visible {
   color: var(--brand);
 }
@@ -212,6 +218,48 @@ main {
   background: linear-gradient(90deg, transparent, var(--line), transparent);
 }
 
+.profile-name-inner {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-name-ghost {
+  visibility: hidden;
+}
+
+.profile-name-typed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+.name-cursor {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.82em;
+  margin-left: 0.07em;
+  vertical-align: -0.06em;
+  border-radius: 2px;
+  background: var(--brand);
+  animation: name-cursor-blink 1.1s linear infinite;
+}
+
+.name-cursor-hidden {
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+@keyframes name-cursor-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
 .profile-text-slot {
   align-content: start;
   gap: 1rem;
@@ -226,7 +274,7 @@ main {
 
 .profile-kicker {
   color: var(--brand);
-  font-size: 0.78rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;

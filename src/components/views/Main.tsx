@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ContactNavItem from "../contact/ContactNavItem";
 import cvImage from "../../assets/cv-img.jpeg";
@@ -39,7 +40,40 @@ const estudios = [
 
 const tecnologias = ["Java", "Spring Boot", "Node.js", "Python", "SQL", "Oracle", "AWS", "HTML", "CSS", "TypeScript", "JavaScript"];
 
+const FULL_NAME = "Jorge Vazquez";
+
 export default function Main() {
+  const [typedName, setTypedName] = useState("");
+  const [cursorHidden, setCursorHidden] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTypedName(FULL_NAME);
+      setCursorHidden(true);
+      return;
+    }
+
+    let index = 0;
+    let intervalId: number | undefined;
+    let hideCursorTimeout: number | undefined;
+    const startDelay = window.setTimeout(() => {
+      intervalId = window.setInterval(() => {
+        index += 1;
+        setTypedName(FULL_NAME.slice(0, index));
+        if (index >= FULL_NAME.length) {
+          window.clearInterval(intervalId);
+          hideCursorTimeout = window.setTimeout(() => setCursorHidden(true), 1800);
+        }
+      }, 90);
+    }, 400);
+
+    return () => {
+      window.clearTimeout(startDelay);
+      if (intervalId !== undefined) window.clearInterval(intervalId);
+      if (hideCursorTimeout !== undefined) window.clearTimeout(hideCursorTimeout);
+    };
+  }, []);
+
   return (
     <main>
       <nav className="site-nav" aria-label="Navegación principal">
@@ -61,7 +95,15 @@ export default function Main() {
           <img src={cvImage} alt="Foto de Jorge Vázquez" />
         </div>
         <div className="profile-slot profile-details">
-          <div className="profile-name">Jorge Vazquez</div>
+          <div className="profile-name" aria-label={FULL_NAME}>
+            <span className="profile-name-inner" aria-hidden="true">
+              <span className="profile-name-ghost">{FULL_NAME}</span>
+              <span className="profile-name-typed">
+                {typedName}
+                <span className={cursorHidden ? "name-cursor name-cursor-hidden" : "name-cursor"}></span>
+              </span>
+            </span>
+          </div>
           <div className="profile-text-slot">
             <p className="profile-kicker">Portfolio personal</p>
             <p className="profile-intro">
