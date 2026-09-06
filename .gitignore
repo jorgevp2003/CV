@@ -25,3 +25,6 @@ dist-ssr
 
 # Artefactos de WSL/Windows
 *:Zone.Identifier
+
+# Notas locales (no subir al repo)
+a futuro.txt
