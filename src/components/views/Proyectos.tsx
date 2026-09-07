@@ -14,12 +14,12 @@ import "./Proyectos.css";
 */
 const proyectos: ProjectCardProps[] = [
   {
-    title: "Proyecto 1",
+    title: "VECTEF",
     description:
-      "Explica aquí qué hace el proyecto, qué problema resuelve y qué tecnologías usaste.",
-    githubUrl: "https://github.com/tu-usuario/proyecto-1",
-    liveUrl: "https://proyecto-1.tu-dominio.com",
-    tech: ["React", "TypeScript"]
+      "Web corporativa para una empresa de ventanas y cerramientos de PVC y aluminio: catálogo de productos, proyectos, presupuesto online y tiempo real.",
+    githubUrl: "https://github.com/tu-usuario/vectef",
+    detailPath: "/proyecto1",
+    tech: ["Next.js", "React", "TypeScript", "Laravel", "Docker"]
   },
   {
     title: "Proyecto 2",

@@ -1,4 +1,5 @@
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -11,7 +12,8 @@
 
 .project-card:hover,
 .project-card:focus-within {
-  transform: translateY(-6px);
+  z-index: 1;
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 0 28px 60px rgba(3, 9, 20, 0.6);
 }
 
@@ -48,6 +50,13 @@
   width: 2rem;
   height: 2rem;
   opacity: 0.55;
+}
+
+.project-card-media-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
 .project-card-body {
@@ -141,4 +150,13 @@
 .project-card-link:focus-visible {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card:hover,
+  .project-card:focus-within {
+    transition: none;
+    transform: none;
+  }
 }
