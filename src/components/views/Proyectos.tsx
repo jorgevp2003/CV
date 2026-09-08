@@ -17,7 +17,7 @@ const proyectos: ProjectCardProps[] = [
     title: "VECTEF",
     description:
       "Web corporativa para una empresa de ventanas y cerramientos de PVC y aluminio: catálogo de productos, proyectos, presupuesto online y tiempo real.",
-    githubUrl: "https://github.com/tu-usuario/vectef",
+    githubUrl: "https://github.com/jorgevp2003/vectef",
     detailPath: "/proyecto1",
     tech: ["Next.js", "React", "TypeScript", "Laravel", "Docker"]
   },
