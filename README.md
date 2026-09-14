@@ -2,7 +2,7 @@
 
 Portfolio personal y currículum web: una página única con navegación por secciones (inicio, proyectos y contacto), animaciones y diseño oscuro, desplegada gratuitamente en GitHub Pages.
 
-**Ver online:** https://jorgevp2003.github.io/CV-JorgeVazquez.github.io/
+**Ver online:** https://jorgevp2003.github.io/CV/
 
 ## Tecnologías
 
@@ -60,7 +60,7 @@ La página de detalle (`/proyecto1`) presenta una web corporativa full-stack. El
 ```bash
 pnpm install
 pnpm dev        # servidor de desarrollo en http://localhost:3000
-pnpm build      # build de producción en dist/ (base /CV-JorgeVazquez.github.io/)
+pnpm build      # build de producción en dist/ (base /CV/)
 pnpm preview    # previsualizar el build
 ```
 
